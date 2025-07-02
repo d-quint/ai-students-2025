@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover how 92% of U.S. college students use AI tools in 2025, from writing AI and paper AI assistants to creative platforms like Suno AI music generation. Data-driven insights on college AI adoption trends.">
+    <meta name="keywords" content="Writing AI, Paper AI, AI Assistant, College AI, Student AI usage, AI tools education, college technology trends">
+    <meta name="author" content="AI Research & Publishing Assignment">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="How U.S. College Students Use AI in 2025: A Quantitative Snapshot">
+    <meta property="og:description" content="Comprehensive analysis of AI tool adoption among college students, featuring interactive data visualizations and insights from 85+ recent studies.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://github.com/yourusername/ai-college-students-2025">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How U.S. College Students Use AI in 2025: A Quantitative Snapshot">
+    <meta name="twitter:description" content="92% of college students now use AI tools - discover the trends, demographics, and future implications.">
+    
+    <title>How U.S. College Students Use AI in 2025: A Quantitative Snapshot</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary: #6366F1;
+            --primary-dark: #4F46E5;
+            --secondary: #EC4899;
+            --accent: #F59E0B;
+            --text-primary: #1F2937;
+            --text-secondary: #6B7280;
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F9FAFB;
+            --border: #E5E7EB;
+        }
+        
+        * {
+            letter-spacing: -0.025em;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+        }
+        
+        .font-display {
+            font-family: 'Space Grotesk', sans-serif;
+            letter-spacing: -0.05em;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(236, 72, 153, 0.05) 100%);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .section-divider {
+            background: linear-gradient(90deg, transparent, #6366F1, transparent);
+            height: 1px;
+        }
+        
+        .chart-container {
+            background: #FFFFFF;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border: 1px solid #E5E7EB;
+        }
+        
+        .prose h1, .prose h2, .prose h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            letter-spacing: -0.05em;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(236, 72, 153, 0.02) 100%);
+            border-left: 4px solid #6366F1;
+        }
+        
+        .tool-tag {
+            background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            display: inline-block;
+            margin: 2px;
+        }
+        
+        @media (max-width: 768px) {
+            .chart-container {
+                padding: 16px;
+            }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Carousel Styles */
+        .carousel-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .carousel-slide {
+            position: relative;
+            display: none;
+            width: 100%;
+        }
+        
+        .carousel-slide.active {
+            display: block;
+        }
+        
+        .carousel-slide img {
+            transition: transform 0.5s ease;
+        }
+        
+        .carousel-slide:hover img {
+            transform: scale(1.02);
+        }
+        
+        .carousel-indicator.active {
+            background-color: #7C3AED !important;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-md border-b border-gray-200 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="font-display text-xl font-bold text-gray-900">AI Research 2025</h1>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#overview" class="text-gray-600 hover:text-indigo-600 transition-colors">Overview</a>
+                    <a href="#adoption" class="text-gray-600 hover:text-indigo-600 transition-colors">Adoption</a>
+                    <a href="#tools" class="text-gray-600 hover:text-indigo-600 transition-colors">Tools</a>
+                    <a href="#demographics" class="text-gray-600 hover:text-indigo-600 transition-colors">Demographics</a>
+                    <a href="#future" class="text-gray-600 hover:text-indigo-600 transition-colors">Future</a>
+                    <a href="#references" class="text-gray-600 hover:text-indigo-600 transition-colors">References</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 gradient-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center text-white fade-in">
+                <h1 class="font-display text-4xl md:text-6xl font-bold mb-6">
+                    How U.S. College Students Use 
+                    <span class="text-yellow-300">AI</span> in 2025
+                </h1>
+                <p class="text-xl md:text-2xl mb-4 text-gray-100 max-w-4xl mx-auto">
+                    A Quantitative Snapshot: From 66% to 92% adoption in just 18 months
+                </p>
+                <p class="text-lg mb-8 text-yellow-200 font-medium">
+                    By Dane Ross Quintano
+                </p>
+                <div class="flex flex-wrap justify-center gap-4 mb-8">
+                    <div class="bg-white/90 shadow-lg px-6 py-4 rounded-lg">
+                        <div class="text-2xl font-bold text-gray-900">92%</div>
+                        <div class="text-sm text-gray-700">Students Use AI</div>
+                    </div>
+                    <div class="bg-white/90 shadow-lg px-6 py-4 rounded-lg">
+                        <div class="text-2xl font-bold text-gray-900">85+</div>
+                        <div class="text-sm text-gray-700">Studies Analyzed</div>
+                    </div>
+                    <div class="bg-white/90 shadow-lg px-6 py-4 rounded-lg">
+                        <div class="text-2xl font-bold text-gray-900">$75B</div>
+                        <div class="text-sm text-gray-700">Market by 2030</div>
+                    </div>
+                </div>
+                <p class="text-gray-200 text-sm">
+                    Based on comprehensive analysis of recent studies and surveys (2023-2025)
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        
+        <!-- Introduction Section -->
+        <section id="overview" class="mb-16 animate-on-scroll">
+            <div class="prose prose-lg max-w-none">
+                <div class="highlight-box p-8 rounded-xl mb-12">
+                    <h2 class="font-display text-3xl font-bold text-gray-900 mb-6">Executive Summary</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                        In just 18 months, <strong class="text-indigo-600">AI usage among U.S. college students has skyrocketed from 66% to 92%</strong><sup><a href="#ref1" class="text-blue-600 hover:text-blue-800">[1]</a></sup>, fundamentally transforming how an entire generation approaches learning and academic work. This represents the fastest technological shift in academic history, moving artificial intelligence from an experimental curiosity to an essential academic companion.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Beyond ChatGPT, students now leverage AI for music creation with <span class="tool-tag">Suno AI</span><sup><a href="#ref2" class="text-blue-600 hover:text-blue-800">[2]</a></sup>, video production, coding assistance, and complex research tasks. The global AI in education market has exploded from <strong>$4.8 billion in 2024</strong> to a projected <strong>$75.1 billion by 2030</strong><sup><a href="#ref3" class="text-blue-600 hover:text-blue-800">[3,4]</a></sup>, indicating that current usage patterns are just the beginning of a fundamental transformation in higher education.
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <div>
+                        <h3 class="font-display text-xl font-semibold text-gray-900 mb-4">Key Findings</h3>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start">
+                                <span class="inline-block w-2 h-2 bg-indigo-500 rounded-full mt-3 mr-3 flex-shrink-0"></span>
+                                <span>88% now use generative AI for assessments (up from 53% in 2024)<sup><a href="#ref1" class="text-blue-600 hover:text-blue-800">[1]</a></sup></span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="inline-block w-2 h-2 bg-pink-500 rounded-full mt-3 mr-3 flex-shrink-0"></span>
+                                <span>Significant gender and socioeconomic disparities in adoption patterns<sup><a href="#ref5" class="text-blue-600 hover:text-blue-800">[5,6]</a></sup></span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="inline-block w-2 h-2 bg-amber-500 rounded-full mt-3 mr-3 flex-shrink-0"></span>
+                                <span>Evolution from simple chatbots to sophisticated creative and analytical platforms<sup><a href="#ref2" class="text-blue-600 hover:text-blue-800">[2,7]</a></sup></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-display text-xl font-semibold text-gray-900 mb-4">Data Sources</h3>
+                        <p class="text-gray-700 mb-4">
+                            This analysis synthesizes data from <strong>85+ recent studies and surveys</strong> conducted between 2023-2025, providing comprehensive insights into usage patterns, demographics, and emerging trends.
+                        </p>
+                        <div class="text-sm text-gray-600">
+                            <p>• Large-scale institutional surveys</p>
+                            <p>• Regional demographic studies</p>
+                            <p>• Specialized field research</p>
+                            <p>• Market research reports</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider mb-16"></div>
+
+        <!-- Adoption Rates Section -->
+        <section id="adoption" class="mb-16 animate-on-scroll">
+            <h2 class="font-display text-3xl font-bold text-gray-900 mb-8">The Current Landscape: Adoption Rates & Market Growth</h2>
+            
+            <!-- Section Introduction -->
+            <div class="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl p-8 mb-12">
+                <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                    The numbers tell a compelling story of rapid transformation. What we're witnessing isn't just technology adoption—it's a fundamental shift in how an entire generation approaches learning, problem-solving, and creative expression. The data reveals three critical trends: explosive market growth, near-universal student adoption, and significant institutional adaptation challenges.
+                </p>
+                <p class="text-gray-600">
+                    From our analysis of 85+ studies spanning 2023-2025, a clear picture emerges of education's fastest technological transformation in history.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 mb-12">
+                <div class="flex flex-col h-full">
+                    <h3 class="font-display text-xl font-semibold text-gray-900 mb-6">Market Explosion</h3>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        The AI in education market has experienced unprecedented growth, driven primarily by student demand and institutional recognition of AI's transformative potential. This isn't merely about new software adoption—it represents a fundamental reimagining of educational infrastructure and methodology.
+                    </p>
+                    <div class="space-y-4 mb-6">
+                        <div class="stat-card p-6 rounded-xl">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-sm font-medium text-gray-600">Global AI in Education Market</span>
+                                <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">Growing</span>
+                            </div>
+                            <div class="text-2xl font-bold text-gray-900">$4.8B → $75.1B<sup><a href="#ref3" class="text-blue-600 hover:text-blue-800">[3,4]</a></sup></div>
+                            <div class="text-sm text-gray-600">2024 to 2030 projection</div>
+                        </div>
+                        
+                        <div class="stat-card p-6 rounded-xl">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-sm font-medium text-gray-600">Growth Rate (CAGR)</span>
+                                <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">Explosive</span>
+                            </div>
+                            <div class="text-2xl font-bold text-gray-900">31.2% - 42.83%<sup><a href="#ref3" class="text-blue-600 hover:text-blue-800">[3,4]</a></sup></div>
+                            <div class="text-sm text-gray-600">Annual growth rate</div>
+                        </div>
+                        
+                        <div class="stat-card p-6 rounded-xl">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-sm font-medium text-gray-600">U.S. College Students</span>
+                                <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">2025 Data</span>
+                            </div>
+                            <div class="text-2xl font-bold text-gray-900">92%<sup><a href="#ref1" class="text-blue-600 hover:text-blue-800">[1]</a></sup></div>
+                            <div class="text-sm text-gray-600">Now use AI tools</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Image for Market Growth -->
+                    <div class="flex-grow">
+                        <div class="rounded-lg overflow-hidden shadow-lg h-full">
+                            <img src="figure2.png" alt="College students using laptops and tablets in a modern university library" class="w-full h-64 object-cover">
+                            <div class="bg-white p-4">
+                                <p class="text-sm text-gray-600 text-center">
+                                    <strong>Figure 2:</strong> College students using laptops and tablets in a modern university library
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chart-container flex flex-col">
+                    <canvas id="marketChart" style="height: 800px; max-height: 800px;"></canvas>
+                    <p class="text-sm text-gray-600 text-center mt-4">
+                        <strong>Chart Analysis:</strong> The exponential growth curve shown above demonstrates how AI investment in education has shifted from experimental to essential, with the steepest acceleration occurring between 2024-2026 as institutions recognize AI's transformative potential.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div class="chart-container">
+                    <canvas id="adoptionChart" style="height: 600px; max-height: 600px;"></canvas>
+                    <p class="text-sm text-gray-600 text-center mt-4">
+                        <strong>Chart Insights:</strong> Voice assistants lead adoption at 80%, reflecting students' comfort with conversational AI interfaces. The progression from basic tools (voice, search) to sophisticated applications (writing, summarization) shows increasing AI integration sophistication.
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="font-display text-xl font-semibold text-gray-900 mb-6">Usage Patterns & Daily Integration</h3>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        Beyond adoption rates, our data reveals how deeply AI has integrated into students' daily academic routines. The distinction between "AI users" and "non-users" has largely disappeared—the question now is which tools students use and how frequently.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center p-4 bg-gray-50 rounded-lg">
+                            <span class="font-medium text-gray-900">Daily AI Usage</span>
+                            <span class="text-indigo-600 font-semibold">24%<sup><a href="#ref8" class="text-blue-600 hover:text-blue-800">[8]</a></sup></span>
+                        </div>
+                        <div class="flex justify-between items-center p-4 bg-gray-50 rounded-lg">
+                            <span class="font-medium text-gray-900">Weekly AI Usage</span>
+                            <span class="text-pink-600 font-semibold">54%<sup><a href="#ref8" class="text-blue-600 hover:text-blue-800">[8]</a></sup></span>
+                        </div>
+                        <div class="flex justify-between items-center p-4 bg-gray-50 rounded-lg">
+                            <span class="font-medium text-gray-900">Assessment Integration</span>
+                            <span class="text-amber-600 font-semibold">88%<sup><a href="#ref1" class="text-blue-600 hover:text-blue-800">[1]</a></sup></span>
+                        </div>
+                        <div class="flex justify-between items-center p-4 bg-gray-50 rounded-lg">
+                            <span class="font-medium text-gray-900">Global Academic Use</span>
+                            <span class="text-emerald-600 font-semibold">86%<sup><a href="#ref8" class="text-blue-600 hover:text-blue-800">[8]</a></sup></span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="font-display text-lg font-semibold text-gray-900 mb-4">Institutional Response: The Policy Gap</h4>
+                        <p class="text-gray-700 mb-4 leading-relaxed">
+                            While student adoption has been rapid and organic, institutional responses reveal significant adaptation challenges. The gap between student usage and institutional support creates both opportunities and risks for higher education.
+                        </p>
+                        <div class="space-y-3 text-gray-700">
+                            <p>• <strong>80%</strong> of students report clear institutional AI policies<sup><a href="#ref1" class="text-blue-600 hover:text-blue-800">[1]</a></sup> (up from just 9.9% in 2023)</p>
+                            <p>• Only <strong>36%</strong> received institutional AI skills support<sup><a href="#ref1" class="text-blue-600 hover:text-blue-800">[1]</a></sup>, highlighting training gaps</p>
+                            <p>• <strong>76%</strong> believe institutions can detect AI use in work<sup><a href="#ref1" class="text-blue-600 hover:text-blue-800">[1]</a></sup>, indicating awareness of oversight</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider mb-16"></div>
+
+        <!-- AI Tools Section -->
+        <section id="tools" class="mb-16 animate-on-scroll">
+            <h2 class="font-display text-3xl font-bold text-gray-900 mb-8">Beyond ChatGPT: The Expanding AI Toolkit</h2>
+            
+            <!-- Figure 3 Carousel -->
+            <div class="mb-12">
+                <div class="bg-gradient-to-r from-purple-500 to-pink-600 text-white p-6 rounded-lg mb-4">
+                    <h4 class="text-xl font-semibold mb-2">🛠️ AI Tool Categories & Usage Patterns</h4>
+                    <p class="text-purple-100">Interactive visualization of specialized AI platforms across creative, academic, and technical domains</p>
+                </div>
+                
+                <!-- Carousel Container -->
+                <div class="relative bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="carousel-wrapper relative">
+                        <!-- Carousel Slides -->
+                        <div class="carousel-slide active">
+                            <img src="figure3a.png" alt="Suno AI music generation interface" class="w-full h-140 object-cover">
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                                <h5 class="text-white font-semibold text-lg mb-2">Suno AI Music Generation</h5>
+                                <p class="text-gray-200 text-sm">Students creating custom songs from text prompts for educational projects</p>
+                            </div>
+                        </div>
+                        
+                        <div class="carousel-slide">
+                            <img src="figure3b.png" alt="GitHub Copilot code suggestions interface" class="w-full h-140 object-cover">
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                                <h5 class="text-white font-semibold text-lg mb-2">GitHub Copilot Code Assistance</h5>
+                                <p class="text-gray-200 text-sm">Real-time code suggestions and debugging support for programming students</p>
+                            </div>
+                        </div>
+                        
+                        <div class="carousel-slide">
+                            <img src="figure3c.png" alt="DALL-E image generation interface" class="w-full h-140 object-cover">
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                                <h5 class="text-white font-semibold text-lg mb-2">DALL-E Image Creation</h5>
+                                <p class="text-gray-200 text-sm">AI-powered visual content generation for presentations and creative projects</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Navigation Arrows -->
+                        <button class="carousel-prev absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full transition-all duration-200">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                            </svg>
+                        </button>
+                        <button class="carousel-next absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full transition-all duration-200">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <!-- Carousel Indicators -->
+                    <div class="flex justify-center space-x-2 p-4 bg-gray-50">
+                        <button class="carousel-indicator active w-3 h-3 rounded-full bg-purple-600 transition-all duration-200" data-slide="0"></button>
+                        <button class="carousel-indicator w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-200" data-slide="1"></button>
+                        <button class="carousel-indicator w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-200" data-slide="2"></button>
+                    </div>
+                    
+                    <div class="p-4 bg-white">
+                        <p class="text-sm text-gray-600 text-center">
+                            <strong>Figure 3:</strong> Screenshot montage showing specialized AI tools transforming student workflows across creative and technical domains
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 mb-12">
+                <div>
+                    <h3 class="font-display text-xl font-semibold text-gray-900 mb-6">Creative & Multimedia Revolution</h3>
+                    
+                    <div class="bg-white rounded-xl shadow-lg p-6 mb-6">
+                        <h4 class="font-semibold text-gray-900 mb-3">From Text to Tunes: AI's Creative Expansion</h4>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            While ChatGPT remains widely recognized (used by 66% of students globally<sup><a href="#ref8" class="text-blue-600 hover:text-blue-800">[8]</a></sup>), 2025 has witnessed an explosion of specialized AI applications that extend far beyond traditional text generation.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed">
+                            The creative revolution is particularly striking. Students who once struggled with technical barriers to music production, video editing, or graphic design now create professional-quality multimedia projects using AI-powered platforms. This democratization of creative tools has transformed academic presentations, portfolio projects, and extracurricular activities.
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div class="border border-gray-200 rounded-lg p-6">
+                            <h4 class="font-semibold text-gray-900 mb-3 flex items-center">
+                                🎵 Music & Audio Creation
+                            </h4>
+                            <div class="space-y-2 text-gray-700">
+                                <p><span class="tool-tag">Suno AI</span> Students creating custom songs from text prompts for projects<sup><a href="#ref2" class="text-blue-600 hover:text-blue-800">[2]</a></sup></p>
+                                <p><strong>Use Cases:</strong> Educational videos, presentation soundtracks, creative assignments</p>
+                                <p><strong>Impact:</strong> Democratizing music creation for non-musicians</p>
+                            </div>
+                        </div>
+                        
+                        <div class="border border-gray-200 rounded-lg p-6">
+                            <h4 class="font-semibold text-gray-900 mb-3 flex items-center">
+                                🎨 Visual Content Generation
+                            </h4>
+                            <div class="space-y-2 text-gray-700">
+                                <p><span class="tool-tag">DALL-E</span> <span class="tool-tag">Midjourney</span> Image creation for presentations and projects</p>
+                                <p><span class="tool-tag">Canva AI</span> Design assistance and template customization</p>
+                                <p><span class="tool-tag">Adobe Firefly</span> Professional-grade creative tools integration</p>
+                            </div>
+                        </div>
+                        
+                        <div class="border border-gray-200 rounded-lg p-6">
+                            <h4 class="font-semibold text-gray-900 mb-3 flex items-center">
+                                🎬 Video Production
+                            </h4>
+                            <div class="space-y-2 text-gray-700">
+                                <p><span class="tool-tag">Synthesia</span> <span class="tool-tag">Runway</span> AI-generated videos for presentations</p>
+                                <p><span class="tool-tag">Steve AI</span> Automated video creation from scripts</p>
+                                <p><strong>Impact:</strong> Reducing technical barriers to multimedia projects</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-display text-xl font-semibold text-gray-900 mb-6">Academic & Technical Tools Evolution</h3>
+                    <div class="highlight-box p-6 rounded-xl mb-6">
+                        <h4 class="font-semibold text-gray-900 mb-3">Coding, Research, and Study Enhancement</h4>
+                        <p class="text-gray-700">
+                            The most significant growth has been in specialized academic tools that integrate seamlessly into existing workflows and study processes.
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div class="border border-gray-200 rounded-lg p-6">
+                            <h4 class="font-semibold text-gray-900 mb-3 flex items-center">
+                                💻 Programming Assistance
+                            </h4>
+                            <div class="space-y-2 text-gray-700">
+                                <p><span class="tool-tag">GitHub Copilot</span> 84.4% of data science students use LLMs for programming<sup><a href="#ref9" class="text-blue-600 hover:text-blue-800">[9]</a></sup></p>
+                                <p><span class="tool-tag">Cursor</span> <span class="tool-tag">Google Colab</span> Code generation and debugging</p>
+                                <p><strong>Impact:</strong> Accelerating learning in technical fields</p>
+                            </div>
+                        </div>
+                        
+                        <div class="border border-gray-200 rounded-lg p-6">
+                            <h4 class="font-semibold text-gray-900 mb-3 flex items-center">
+                                📚 Research & Writing Enhancement
+                            </h4>
+                            <div class="space-y-2 text-gray-700">
+                                <p><span class="tool-tag">Perplexity</span> Advanced research assistance beyond simple search</p>
+                                <p><span class="tool-tag">QuillBot</span> Content refinement and paraphrasing</p>
+                                <p><span class="tool-tag">Grammarly</span> Writing enhancement and style improvement</p>
+                                <p><span class="tool-tag">Otter.ai</span> Lecture transcription and note-taking automation</p>
+                            </div>
+                        </div>
+                        
+                        <div class="border border-gray-200 rounded-lg p-6">
+                            <h4 class="font-semibold text-gray-900 mb-3 flex items-center">
+                                🎯 Specialized Academic Applications
+                            </h4>
+                            <div class="space-y-2 text-gray-700">
+                                <p><strong>Mathematics:</strong> Problem-solving with <span class="tool-tag">Cici</span> <span class="tool-tag">ChatGPT</span></p>
+                                <p><strong>Study Aids:</strong> Concept explanation and personalized tutoring</p>
+                                <p><strong>Content Creation:</strong> Presentations, visual aids, multimedia projects</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider mb-16"></div>
+
+        <!-- Demographics Section -->
+        <section id="demographics" class="mb-16 animate-on-scroll">
+            <h2 class="font-display text-3xl font-bold text-gray-900 mb-8">Demographic Patterns & Usage Disparities</h2>
+            
+            <!-- Supporting Image with Figure Label -->
+            <div class="mb-12">
+                <figure class="text-center">
+                    <img src="figure4.png" alt="Diverse group of college students from different backgrounds working on computers in a campus study space" class="w-3/4 max-w-4xl mx-auto rounded-lg shadow-lg">
+                    <figcaption class="text-sm text-gray-600 mt-3">
+                        <strong>Figure 4:</strong> Diverse group of college students from different backgrounds working on computers in a campus study space
+                    </figcaption>
+                </figure>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-12">
+                <h3 class="font-display text-xl font-semibold text-gray-900 mb-4">The Gender AI Gap: More Than Just Numbers</h3>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    The 7.8% gap in ChatGPT familiarity between male (97.9%) and female (90.09%) students<sup><a href="#ref10" class="text-blue-600 hover:text-blue-800">[10]</a></sup> represents just the surface of a deeper phenomenon. This disparity reflects broader patterns of technology adoption, risk perception, and institutional trust that shape how different demographic groups engage with AI.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    Research reveals that women express more concerns about academic integrity implications<sup><a href="#ref12" class="text-blue-600 hover:text-blue-800">[12]</a></sup>, while men show higher engagement levels<sup><a href="#ref1" class="text-blue-600 hover:text-blue-800">[1]</a></sup>. High-achieving female students particularly avoid AI when institutional policies are unclear<sup><a href="#ref11" class="text-blue-600 hover:text-blue-800">[11]</a></sup>, suggesting that clear guidelines could significantly reduce gender disparities.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 mb-12">
+                <div class="chart-container">
+                    <canvas id="genderChart" style="height: 400px; max-height: 400px;"></canvas>
+                    <div class="mt-4 text-sm text-gray-600 text-center">
+                        <strong>Chart Analysis:</strong> Gender differences extend beyond usage rates to include risk perception, institutional trust, and tool preferences, with women showing more cautious but strategic adoption patterns.
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-display text-xl font-semibold text-gray-900 mb-6">Gender Divide in AI Adoption</h3>
+                    <div class="space-y-4">
+                        <div class="bg-white rounded-xl shadow-lg p-6">
+                            <h4 class="font-semibold text-gray-900 mb-3">ChatGPT Familiarity</h4>
+                            <div class="flex justify-between items-center">
+                                <span class="text-blue-600">Males: 97.9%<sup><a href="#ref10" class="text-blue-600 hover:text-blue-800">[10]</a></sup></span>
+                                <span class="text-pink-600">Females: 90.09%<sup><a href="#ref10" class="text-blue-600 hover:text-blue-800">[10]</a></sup></span>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-4">
+                            <h4 class="font-semibold text-gray-900 mb-2">Key Insights</h4>
+                            <ul class="space-y-1 text-gray-700 text-sm">
+                                <li>• Men show higher engagement, women express more risk concerns<sup><a href="#ref1" class="text-blue-600 hover:text-blue-800">[1]</a></sup></li>
+                                <li>• High-achieving female students avoid AI when policies unclear<sup><a href="#ref11" class="text-blue-600 hover:text-blue-800">[11]</a></sup></li>
+                                <li>• Women more concerned about academic integrity implications<sup><a href="#ref12" class="text-blue-600 hover:text-blue-800">[12]</a></sup></li>
+                                <li>• Gender differences in perceived AI competency<sup><a href="#ref10" class="text-blue-600 hover:text-blue-800">[10]</a></sup></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="stat-card p-6 rounded-xl">
+                    <h3 class="font-display text-lg font-semibold text-gray-900 mb-4">The AI Access Gap</h3>
+                    <div class="space-y-3 text-gray-700">
+                        <p><strong>Economic Factors:<sup><a href="#ref1" class="text-blue-600 hover:text-blue-800">[1]</a></sup></strong></p>
+                        <p class="text-sm">• Higher socioeconomic backgrounds = advanced AI tool usage<sup><a href="#ref1" class="text-blue-600 hover:text-blue-800">[1]</a></sup></p>
+                        <p class="text-sm">• Premium AI tools creating educational inequality<sup><a href="#ref13" class="text-blue-600 hover:text-blue-800">[13]</a></sup></p>
+                        <p class="text-sm">• Geographic patterns favor urban areas<sup><a href="#ref14" class="text-blue-600 hover:text-blue-800">[14]</a></sup></p>
+                    </div>
+                </div>
+                
+                <div class="stat-card p-6 rounded-xl">
+                    <h3 class="font-display text-lg font-semibold text-gray-900 mb-4">Academic Field Variations</h3>
+                    <div class="space-y-3 text-gray-700">
+                        <p><strong>STEM vs. Liberal Arts:<sup><a href="#ref15" class="text-blue-600 hover:text-blue-800">[15]</a></sup></strong></p>
+                        <p class="text-sm">• Higher adoption rates in technical fields<sup><a href="#ref15" class="text-blue-600 hover:text-blue-800">[15]</a></sup></p>
+                        <p class="text-sm">• 84.4% of data science students use AI<sup><a href="#ref9" class="text-blue-600 hover:text-blue-800">[9]</a></sup></p>
+                        <p class="text-sm">• 91% of medical students lack formal training<sup><a href="#ref16" class="text-blue-600 hover:text-blue-800">[16]</a></sup></p>
+                    </div>
+                </div>
+                
+                <div class="stat-card p-6 rounded-xl">
+                    <h3 class="font-display text-lg font-semibold text-gray-900 mb-4">Age & Experience Factors</h3>
+                    <div class="space-y-3 text-gray-700">
+                        <p><strong>Learning Curve:<sup><a href="#ref17" class="text-blue-600 hover:text-blue-800">[17]</a></sup></strong></p>
+                        <p class="text-sm">• Under-25 users show higher engagement<sup><a href="#ref18" class="text-blue-600 hover:text-blue-800">[18]</a></sup></p>
+                        <p class="text-sm">• 75% rarely use AI initially<sup><a href="#ref17" class="text-blue-600 hover:text-blue-800">[17]</a></sup></p>
+                        <p class="text-sm">• 80% regular use by year-end<sup><a href="#ref17" class="text-blue-600 hover:text-blue-800">[17]</a></sup></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider mb-16"></div>
+
+        <!-- Academic Integration Section -->
+        <section id="integration" class="mb-16 animate-on-scroll">
+            <h2 class="font-display text-3xl font-bold text-gray-900 mb-8">Academic Integration & Real-World Applications</h2>
+            
+            <!-- Supporting Image with Figure Label -->
+            <div class="mb-12">
+                <figure class="text-center">
+                    <img src="figure5.png" alt="Student working on a research paper with multiple AI tools open: ChatGPT for brainstorming, Grammarly for editing, and Perplexity for research" class="w-3/4 max-w-4xl mx-auto rounded-lg shadow-lg">
+                    <figcaption class="text-sm text-gray-600 mt-3">
+                        <strong>Figure 5:</strong> Student working on a research paper with multiple AI tools open: ChatGPT for brainstorming, Grammarly for editing, and Perplexity for research
+                    </figcaption>
+                </figure>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-12">
+                <h3 class="font-display text-xl font-semibold text-gray-900 mb-4">From Tool to Transformation: How AI Reshapes Learning</h3>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    The integration of AI into academic work has moved far beyond simple text generation. Today's students employ sophisticated, multi-step workflows that combine research, analysis, creation, and refinement tools to produce work that would have required specialized skills or significant time investment just two years ago.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    This transformation is most visible in project-based courses where students now routinely combine Perplexity for research, ChatGPT for synthesis, GitHub Copilot for technical implementation, Suno AI for multimedia elements, and Grammarly for final polish—creating a seamless AI-enhanced academic experience.
+                </p>
+            </div>
+            
+            <div class="bg-gradient-to-br from-indigo-50 to-blue-50 border border-indigo-200 rounded-xl p-8 mb-12">
+                <h3 class="font-display text-xl font-semibold text-gray-900 mb-6">How Students Actually Use AI</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-indigo-600 mb-2">69%</div>
+                        <div class="font-semibold text-gray-900 mb-1">Research & Information<sup><a href="#ref8" class="text-blue-600 hover:text-blue-800">[8]</a></sup></div>
+                        <div class="text-sm text-gray-600">Source discovery and verification</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-pink-600 mb-2">54%</div>
+                        <div class="font-semibold text-gray-900 mb-1">Writing Enhancement<sup><a href="#ref19" class="text-blue-600 hover:text-blue-800">[19]</a></sup></div>
+                        <div class="text-sm text-gray-600">Grammar and style improvement</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-amber-600 mb-2">84.4%</div>
+                        <div class="font-semibold text-gray-900 mb-1">Programming Tasks<sup><a href="#ref9" class="text-blue-600 hover:text-blue-800">[9]</a></sup></div>
+                        <div class="text-sm text-gray-600">Among data science students</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="font-display text-xl font-semibold text-gray-900 mb-6">Subject-Specific Integration</h3>
+                    <div class="space-y-6">
+                        <div class="border border-gray-200 rounded-lg p-6">
+                            <h4 class="font-semibold text-gray-900 mb-3">🔬 STEM Fields</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li><strong>Mathematics:</strong> AI tutoring for problem-solving and conceptual understanding<sup><a href="#ref20" class="text-blue-600 hover:text-blue-800">[20]</a></sup></li>
+                                <li><strong>Programming:</strong> Code generation, debugging, and optimization workflows<sup><a href="#ref9" class="text-blue-600 hover:text-blue-800">[9]</a></sup></li>
+                                <li><strong>Engineering:</strong> Design assistance and technical documentation<sup><a href="#ref21" class="text-blue-600 hover:text-blue-800">[21]</a></sup></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="border border-gray-200 rounded-lg p-6">
+                            <h4 class="font-semibold text-gray-900 mb-3">📚 Liberal Arts & Social Sciences</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li><strong>Writing-Intensive Courses:</strong> Research assistance and writing enhancement<sup><a href="#ref22" class="text-blue-600 hover:text-blue-800">[22]</a></sup></li>
+                                <li><strong>Language Learning:</strong> Conversation practice and grammar correction<sup><a href="#ref23" class="text-blue-600 hover:text-blue-800">[23]</a></sup></li>
+                                <li><strong>History/Literature:</strong> Source analysis and comparative research<sup><a href="#ref24" class="text-blue-600 hover:text-blue-800">[24]</a></sup></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="border border-gray-200 rounded-lg p-6">
+                            <h4 class="font-semibold text-gray-900 mb-3">🎨 Creative & Applied Fields</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li><strong>Media Production:</strong> AI-generated music, video, and visual content<sup><a href="#ref2" class="text-blue-600 hover:text-blue-800">[2,7]</a></sup></li>
+                                <li><strong>Design Programs:</strong> Creative ideation and rapid prototyping<sup><a href="#ref25" class="text-blue-600 hover:text-blue-800">[25]</a></sup></li>
+                                <li><strong>Business Studies:</strong> Market research and presentation development<sup><a href="#ref26" class="text-blue-600 hover:text-blue-800">[26]</a></sup></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-display text-xl font-semibold text-gray-900 mb-6">Workflow Integration Examples</h3>
+                    <div class="space-y-6">
+                        <div class="stat-card p-6 rounded-xl">
+                            <h4 class="font-semibold text-gray-900 mb-3">Research Workflow</h4>
+                            <div class="flex items-center space-x-2 text-sm">
+                                <span class="tool-tag">Perplexity</span>
+                                <span>→</span>
+                                <span class="tool-tag">ChatGPT</span>
+                                <span>→</span>
+                                <span class="tool-tag">Grammarly</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mt-2">Source discovery → Synthesis → Refinement</p>
+                        </div>
+                        
+                        <div class="stat-card p-6 rounded-xl">
+                            <h4 class="font-semibold text-gray-900 mb-3">Creative Projects</h4>
+                            <div class="flex items-center space-x-2 text-sm">
+                                <span class="tool-tag">DALL-E</span>
+                                <span>→</span>
+                                <span class="tool-tag">Suno AI</span>
+                                <span>→</span>
+                                <span class="bg-gray-200 px-3 py-1 rounded text-gray-700">Editing</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mt-2">Visuals → Audio → Final production</p>
+                        </div>
+                        
+                        <div class="stat-card p-6 rounded-xl">
+                            <h4 class="font-semibold text-gray-900 mb-3">Technical Work</h4>
+                            <div class="flex items-center space-x-2 text-sm">
+                                <span class="tool-tag">GitHub Copilot</span>
+                                <span>→</span>
+                                <span class="bg-gray-200 px-3 py-1 rounded text-gray-700">AI Debugging</span>
+                                <span>→</span>
+                                <span class="bg-gray-200 px-3 py-1 rounded text-gray-700">Docs</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mt-2">Coding → Debugging → Documentation</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="font-display text-lg font-semibold text-gray-900 mb-4">Benefits & Challenges</h4>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-green-50 border border-green-200 rounded-lg p-4">
+                                <h5 class="font-semibold text-green-900 mb-2">Benefits</h5>
+                                <ul class="text-green-800 text-sm space-y-1">
+                                    <li>• 74% believe AI improves performance<sup><a href="#ref27" class="text-blue-600 hover:text-blue-800">[27]</a></sup></li>
+                                    <li>• 24/7 learning support availability<sup><a href="#ref28" class="text-blue-600 hover:text-blue-800">[28]</a></sup></li>
+                                    <li>• Personalized learning experiences<sup><a href="#ref28" class="text-blue-600 hover:text-blue-800">[28]</a></sup></li>
+                                </ul>
+                            </div>
+                            <div class="bg-red-50 border border-red-200 rounded-lg p-4">
+                                <h5 class="font-semibold text-red-900 mb-2">Concerns</h5>
+                                <ul class="text-red-800 text-sm space-y-1">
+                                    <li>• 18% include AI text directly in work<sup><a href="#ref1" class="text-blue-600 hover:text-blue-800">[1]</a></sup></li>
+                                    <li>• Over-dependence risks<sup><a href="#ref29" class="text-blue-600 hover:text-blue-800">[29,30]</a></sup></li>
+                                    <li>• Academic integrity concerns<sup><a href="#ref31" class="text-blue-600 hover:text-blue-800">[31]</a></sup></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider mb-16"></div>
+
+        <!-- Future Section -->
+        <section id="future" class="mb-16 animate-on-scroll">
+            <h2 class="font-display text-3xl font-bold text-gray-900 mb-8">Future Implications & Strategic Recommendations</h2>
+            
+            <!-- Supporting Image with Figure Label -->
+            <div class="mb-12">
+                <figure class="bg-gray-100 rounded-lg p-8 text-center">
+                    <div class="bg-gradient-to-r from-amber-500 to-orange-600 text-white p-6 rounded-lg mb-4">
+                        <h4 class="text-xl font-semibold mb-2">🔮 Future AI Education Landscape</h4>
+                        <p class="text-amber-100">Projected growth trends, institutional adaptation strategies, and emerging educational paradigms</p>
+                    </div>
+                    <figcaption class="text-sm text-gray-600 mt-3">
+                        <strong>Figure 6:</strong> Modern university classroom with students using AI-powered learning platforms on tablets and interactive displays
+                    </figcaption>
+                </figure>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-12">
+                <h3 class="font-display text-xl font-semibold text-gray-900 mb-4">The Next Educational Revolution</h3>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    We stand at an inflection point. The 31.2%-42.83% CAGR<sup><a href="#ref3" class="text-blue-600 hover:text-blue-800">[3,4]</a></sup> represents more than market growth—it signals a fundamental reimagining of higher education. Today's 92% usage rate is not a ceiling but a foundation for deeper transformation.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    The students entering college in 2025 will graduate into a workforce where AI collaboration is not just expected but essential. Universities that view AI integration as optional rather than strategic will find themselves increasingly disconnected from their students' learning needs and career preparation requirements.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 mb-12">
+                <div>
+                    <h3 class="font-display text-xl font-semibold text-gray-900 mb-6">Looking Ahead: The Next Phase of AI in Education</h3>
+                    
+                    <div class="bg-gradient-to-br from-purple-50 to-indigo-50 border border-purple-200 rounded-xl p-6 mb-6">
+                        <h4 class="font-semibold text-gray-900 mb-3">Growth Projections</h4>
+                        <p class="text-gray-700 mb-4">
+                            The explosive growth rates indicate we're witnessing the early stages of permanent transformation. Current usage patterns represent just the beginning of fundamental change in higher education delivery and student expectations.
+                        </p>
+                        <div class="space-y-3">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-3 h-3 bg-purple-500 rounded-full"></div>
+                                <p class="text-sm text-gray-700"><strong>Tool Sophistication:</strong> Evolution toward specialized, subject-specific applications</p>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-3 h-3 bg-indigo-500 rounded-full"></div>
+                                <p class="text-sm text-gray-700"><strong>Integration Depth:</strong> Movement from supplementary to core educational infrastructure</p>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                                <p class="text-sm text-gray-700"><strong>Multimodal AI:</strong> Integration of text, voice, image, and video capabilities</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-white rounded-xl shadow-lg p-4">
+                            <h4 class="font-semibold text-gray-900 mb-2">Emerging Trends</h4>
+                            <ul class="text-gray-700 text-sm space-y-2">
+                                <li>• <strong>Personalized Learning:</strong> AI-driven adaptive educational experiences</li>
+                                <li>• <strong>Collaborative Intelligence:</strong> Human-AI partnership models</li>
+                                <li>• <strong>Real-time Assessment:</strong> Continuous performance evaluation</li>
+                                <li>• <strong>Cross-Platform Integration:</strong> Seamless tool ecosystems</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-display text-xl font-semibold text-gray-900 mb-6">Strategic Recommendations</h3>
+                    <div class="space-y-6">
+                        <div class="border border-gray-200 rounded-lg p-6">
+                            <h4 class="font-semibold text-gray-900 mb-3">🏫 For Higher Education Institutions</h4>
+                            <ol class="list-decimal list-inside space-y-2 text-gray-700">
+                                <li><strong>Comprehensive Policy Development:</strong> Clear ethical guidelines across all disciplines</li>
+                                <li><strong>Digital Literacy Programs:</strong> Mandatory AI literacy training for students</li>
+                                <li><strong>Equity & Access Initiatives:</strong> Address socioeconomic and gender disparities</li>
+                            </ol>
+                        </div>
+                        
+                        <div class="border border-gray-200 rounded-lg p-6">
+                            <h4 class="font-semibold text-gray-900 mb-3">👨‍🏫 For Educators</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li>• <strong>Pedagogical Adaptation:</strong> Redesign assignments for AI era</li>
+                                <li>• <strong>Skill Development:</strong> Personal AI literacy and integration</li>
+                                <li>• <strong>Student Guidance:</strong> Mentoring responsible AI usage</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="border border-gray-200 rounded-lg p-6">
+                            <h4 class="font-semibold text-gray-900 mb-3">🎓 For Students</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li>• <strong>Ethical Usage:</strong> Understanding academic integrity in AI context</li>
+                                <li>• <strong>Skill Building:</strong> Developing complementary human capabilities</li>
+                                <li>• <strong>Career Preparation:</strong> AI literacy as essential professional skill</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="highlight-box p-8 rounded-xl">
+                <h3 class="font-display text-xl font-semibold text-gray-900 mb-4">Long-term Educational Transformation</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="text-center">
+                        <div class="bg-indigo-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <span class="text-indigo-600 text-xl">📊</span>
+                        </div>
+                        <h4 class="font-semibold text-gray-900 mb-2">Assessment Evolution</h4>
+                        <p class="text-gray-600 text-sm">Moving beyond traditional testing methods</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-pink-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <span class="text-pink-600 text-xl">📚</span>
+                        </div>
+                        <h4 class="font-semibold text-gray-900 mb-2">Curriculum Redesign</h4>
+                        <p class="text-gray-600 text-sm">Emphasis on human-AI collaboration skills</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-amber-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <span class="text-amber-600 text-xl">🏗️</span>
+                        </div>
+                        <h4 class="font-semibold text-gray-900 mb-2">Infrastructure</h4>
+                        <p class="text-gray-600 text-sm">Technology systems and support adaptation</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider mb-16"></div>
+
+        <!-- Methodology Section -->
+        <section id="methodology" class="mb-16 animate-on-scroll">
+            <h2 class="font-display text-3xl font-bold text-gray-900 mb-8">Methodology & Data Sources</h2>
+            
+            <!-- Supporting Image with Figure Label -->
+            <div class="mb-12">
+                <figure class="bg-gray-100 rounded-lg p-8 text-center">
+                    <div class="bg-gradient-to-r from-teal-500 to-cyan-600 text-white p-6 rounded-lg mb-4">
+                        <h4 class="text-xl font-semibold mb-2">📊 Research Methodology Framework</h4>
+                        <p class="text-teal-100">Comprehensive data synthesis approach combining 85+ studies across multiple research categories</p>
+                    </div>
+                    <figcaption class="text-sm text-gray-600 mt-3">
+                        <strong>Figure 7:</strong> Researcher analyzing survey data on multiple computer screens showing charts, spreadsheets, and academic papers
+                    </figcaption>
+                </figure>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-12">
+                <h3 class="font-display text-xl font-semibold text-gray-900 mb-4">Rigorous Research Approach</h3>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    This analysis represents one of the most comprehensive syntheses of AI adoption data in higher education, drawing from <strong>85+ recent studies and surveys</strong> conducted between 2023-2025. Our methodology prioritizes recency, diversity, and geographic representation to capture the rapidly evolving landscape of student AI usage.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    We employed a multi-source validation approach, cross-referencing findings across academic research, industry reports, institutional surveys, and media coverage to ensure accuracy and identify consistent trends across different student populations and geographic regions.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="font-display text-xl font-semibold text-gray-900 mb-6">Research Approach</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-white rounded-xl shadow-lg p-4">
+                            <h4 class="font-semibold text-gray-900 mb-2">Large-Scale Surveys</h4>
+                            <p class="text-gray-600 text-sm">Digital Education Council: 3,839 students across 16 countries</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-4">
+                            <h4 class="font-semibold text-gray-900 mb-2">Regional Studies</h4>
+                            <p class="text-gray-600 text-sm">HEPI UK survey: 1,041 students with detailed demographics</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-4">
+                            <h4 class="font-semibold text-gray-900 mb-2">Specialized Research</h4>
+                            <p class="text-gray-600 text-sm">Medical education, engineering, data science field studies</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-4">
+                            <h4 class="font-semibold text-gray-900 mb-2">Longitudinal Analysis</h4>
+                            <p class="text-gray-600 text-sm">2023-2025 trend identification and pattern recognition</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-display text-xl font-semibold text-gray-900 mb-6">Source Categories</h3>
+                    <div class="space-y-4">
+                        <div class="border border-gray-200 rounded-lg p-6">
+                            <h4 class="font-semibold text-gray-900 mb-3">📚 Academic Research</h4>
+                            <p class="text-gray-700 text-sm">Peer-reviewed studies and university research from leading institutions</p>
+                        </div>
+                        
+                        <div class="border border-gray-200 rounded-lg p-6">
+                            <h4 class="font-semibold text-gray-900 mb-3">📊 Industry Reports</h4>
+                            <p class="text-gray-700 text-sm">Market research from Precedence, Grand View, Mordor Intelligence</p>
+                        </div>
+                        
+                        <div class="border border-gray-200 rounded-lg p-6">
+                            <h4 class="font-semibold text-gray-900 mb-3">🏫 Institutional Surveys</h4>
+                            <p class="text-gray-700 text-sm">Student and faculty perception studies from multiple universities</p>
+                        </div>
+                        
+                        <div class="border border-gray-200 rounded-lg p-6">
+                            <h4 class="font-semibold text-gray-900 mb-3">📰 News & Media</h4>
+                            <p class="text-gray-700 text-sm">Recent coverage from higher education publications and news outlets</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <h4 class="font-display text-lg font-semibold text-gray-900 mb-4">Data Validation</h4>
+                        <ul class="space-y-2 text-gray-700 text-sm">
+                            <li>• <strong>Cross-referencing:</strong> Multiple sources for key statistics</li>
+                            <li>• <strong>Temporal Analysis:</strong> 2023-2025 trend identification</li>
+                            <li>• <strong>Geographic Scope:</strong> U.S.-focused with global context</li>
+                            <li>• <strong>Demographic Representation:</strong> Diverse student populations</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider mb-16"></div>
+
+        <!-- Conclusion Section -->
+        <section id="conclusion" class="mb-16 animate-on-scroll">
+            <div class="highlight-box p-8 rounded-xl">
+                <h2 class="font-display text-3xl font-bold text-gray-900 mb-6">Conclusion: The Path Forward</h2>
+                
+                <div class="grid lg:grid-cols-2 gap-8 mb-8">
+                    <div>
+                        <h3 class="font-display text-xl font-semibold text-gray-900 mb-4">The Transformation is Complete and Accelerating</h3>
+                        <div class="space-y-4 text-gray-700">
+                            <p>
+                                The 92% usage rate represents near-complete integration of AI into college life. This 18-month transformation from experimental to essential marks the fastest technological shift in academic history.
+                            </p>
+                            <p>
+                                We've moved far beyond simple writing AI and paper AI assistants. Today's students leverage sophisticated platforms for music creation, video production, complex research, and specialized academic support across all disciplines.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="font-display text-xl font-semibold text-gray-900 mb-4">Immediate Action Required</h3>
+                        <div class="space-y-3">
+                            <div class="stat-card p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-900 text-sm mb-1">Policy Clarity</h4>
+                                <p class="text-gray-600 text-sm">Urgent need for comprehensive, clear guidelines</p>
+                            </div>
+                            <div class="stat-card p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-900 text-sm mb-1">Training Programs</h4>
+                                <p class="text-gray-600 text-sm">Universal AI literacy education requirements</p>
+                            </div>
+                            <div class="stat-card p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-900 text-sm mb-1">Equity Measures</h4>
+                                <p class="text-gray-600 text-sm">Addressing access and opportunity gaps</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <h3 class="font-display text-xl font-semibold text-gray-900 mb-4">Embracing Change While Preserving Academic Values</h3>
+                    <p class="text-lg text-gray-700 max-w-4xl mx-auto mb-6">
+                        The data reveals we're witnessing not just technological adoption, but a fundamental reimagining of how students learn, create, and engage with knowledge. Success requires balancing innovation with academic integrity, efficiency with critical thinking, and access with equity.
+                    </p>
+                    <div class="bg-indigo-600 text-white px-8 py-4 rounded-lg inline-block">
+                        <p class="font-semibold">
+                            Educational institutions that proactively address these challenges while embracing AI's potential will best serve the next generation of learners and leaders.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider mb-16"></div>
+
+        <!-- References Section -->
+        <section id="references" class="mb-16 animate-on-scroll">
+            <h2 class="font-display text-3xl font-bold text-gray-900 mb-8">References & Sources</h2>
+            
+            <div class="highlight-box p-6 rounded-xl mb-6">
+                <h3 class="font-display text-xl font-semibold text-gray-900 mb-4">Comprehensive Source Documentation</h3>
+                <p class="text-gray-700 mb-4">
+                    All statistics and claims in this analysis are backed by credible, recent sources. Click the button below to view our complete reference list, organized by category.
+                </p>
+                <button id="toggleReferences" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg font-medium transition-colors">
+                    Show All References
+                </button>
+            </div>
+
+            <div id="referencesList" class="hidden space-y-8">
+                
+                <!-- Core Survey and Market Research Studies -->
+                <div class="border border-gray-200 rounded-lg p-6">
+                    <h3 class="font-display text-lg font-semibold text-gray-900 mb-4">📊 Core Survey & Market Research Studies</h3>
+                    <div class="space-y-3 text-sm">
+                        <div id="ref1" class="border-l-4 border-indigo-500 pl-4">
+                            <p><strong>[1]</strong> Freeman, J. (2025, February). Student Generative AI Survey 2025. Higher Education Policy Institute (HEPI) Policy Note 61. <a href="https://www.hepi.ac.uk/wp-content/uploads/2025/02/HEPI-Kortext-Student-Generative-AI-Survey-2025.pdf" class="text-blue-600 hover:text-blue-800">https://www.hepi.ac.uk/wp-content/uploads/2025/02/HEPI-Kortext-Student-Generative-AI-Survey-2025.pdf</a></p>
+                        </div>
+                        <div id="ref2" class="border-l-4 border-pink-500 pl-4">
+                            <p><strong>[2]</strong> University of Nicosia (2024, March 5). How Suno AI Empowers Artists and Educators. <a href="https://www.unic.ac.cy/telblog/2024/03/05/future-music-suno-ai-empowerment/" class="text-blue-600 hover:text-blue-800">https://www.unic.ac.cy/telblog/2024/03/05/future-music-suno-ai-empowerment/</a></p>
+                        </div>
+                        <div id="ref3" class="border-l-4 border-amber-500 pl-4">
+                            <p><strong>[3]</strong> Precedence Research (2025, May 16). AI in Education Market Size to Hit USD 112.30 Bn by 2034. <a href="https://www.precedenceresearch.com/ai-in-education-market" class="text-blue-600 hover:text-blue-800">https://www.precedenceresearch.com/ai-in-education-market</a></p>
+                        </div>
+                        <div id="ref4" class="border-l-4 border-emerald-500 pl-4">
+                            <p><strong>[4]</strong> Grand View Research (2024). AI In Education Market Size & Share | Industry Report, 2030. <a href="https://www.grandviewresearch.com/industry-analysis/artificial-intelligence-ai-education-market-report" class="text-blue-600 hover:text-blue-800">https://www.grandviewresearch.com/industry-analysis/artificial-intelligence-ai-education-market-report</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Student Usage and Demographics Studies -->
+                <div class="border border-gray-200 rounded-lg p-6">
+                    <h3 class="font-display text-lg font-semibold text-gray-900 mb-4">👥 Student Usage & Demographics Studies</h3>
+                    <div class="space-y-3 text-sm">
+                        <div id="ref8" class="border-l-4 border-blue-500 pl-4">
+                            <p><strong>[8]</strong> Digital Education Council (2024). Global AI Student Survey 2024. <a href="https://www.digitaleducationcouncil.com/post/digital-education-council-global-ai-student-survey-2024" class="text-blue-600 hover:text-blue-800">https://www.digitaleducationcouncil.com/post/digital-education-council-global-ai-student-survey-2024</a></p>
+                        </div>
+                        <div id="ref9" class="border-l-4 border-purple-500 pl-4">
+                            <p><strong>[9]</strong> IOS Press (2025, May 15). Exploring Data Science Students' Engagement, Usage Patterns, and Perceptions of Large Language Models in Programming. <a href="https://ebooks.iospress.nl/doi/10.3233/SHTI250547" class="text-blue-600 hover:text-blue-800">https://ebooks.iospress.nl/doi/10.3233/SHTI250547</a></p>
+                        </div>
+                        <div id="ref10" class="border-l-4 border-rose-500 pl-4">
+                            <p><strong>[10]</strong> Norwegian School of Economics (NHH) (2024, September 18). Study reveals gender gap in AI tool usage among students. <a href="https://www.nhh.no/en/nhh-bulletin/article-archive/2024/september/study-reveals-gender-gap-in-ai-tool-usage-among-students/" class="text-blue-600 hover:text-blue-800">https://www.nhh.no/en/nhh-bulletin/article-archive/2024/september/study-reveals-gender-gap-in-ai-tool-usage-among-students/</a></p>
+                        </div>
+                        <div id="ref11" class="border-l-4 border-cyan-500 pl-4">
+                            <p><strong>[11]</strong> Harvard Business School (2025). Global Evidence on Gender Gaps and Generative AI. HBS Working Paper Series. <a href="https://www.hbs.edu/ris/Publication%20Files/25-023_8ee1f38f-d949-4b49-80c8-c7a736f2c27b.pdf" class="text-blue-600 hover:text-blue-800">https://www.hbs.edu/ris/Publication%20Files/25-023_8ee1f38f-d949-4b49-80c8-c7a736f2c27b.pdf</a></p>
+                        </div>
+                        <div id="ref12" class="border-l-4 border-orange-500 pl-4">
+                            <p><strong>[12]</strong> Educational Integrity (2024, June 19). Knowledge, attitudes, and perceived Ethics regarding the use of ChatGPT among generation Z university students. <a href="https://edintegrity.biomedcentral.com/articles/10.1007/s40979-024-00157-4" class="text-blue-600 hover:text-blue-800">https://edintegrity.biomedcentral.com/articles/10.1007/s40979-024-00157-4</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technical and Programming AI Studies -->
+                <div class="border border-gray-200 rounded-lg p-6">
+                    <h3 class="font-display text-lg font-semibold text-gray-900 mb-4">💻 Technical & Programming AI Studies</h3>
+                    <div class="space-y-3 text-sm">
+                        <div id="ref7" class="border-l-4 border-green-500 pl-4">
+                            <p><strong>[7]</strong> Shihab, M. I. H., et al. (2025). The Effects of GitHub Copilot on Computing Students' Programming Effectiveness, Efficiency, and Processes in Brownfield Programming Tasks. arXiv preprint arXiv:2506.10051.</p>
+                        </div>
+                        <div id="ref20" class="border-l-4 border-teal-500 pl-4">
+                            <p><strong>[20]</strong> IEEE (2024, July 27). Intelligent Music Generation: Reducing Anxiety in High School Students. <a href="https://ieeexplore.ieee.org/document/10702339/" class="text-blue-600 hover:text-blue-800">https://ieeexplore.ieee.org/document/10702339/</a></p>
+                        </div>
+                        <div id="ref21" class="border-l-4 border-lime-500 pl-4">
+                            <p><strong>[21]</strong> MIT Press (2024, January 31). What Should Data Science Education Do With Large Language Models? Harvard Data Science Review. <a href="https://hdsr.mitpress.mit.edu/pub/pqiufdew" class="text-blue-600 hover:text-blue-800">https://hdsr.mitpress.mit.edu/pub/pqiufdew</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Medical Education AI Studies -->
+                <div class="border border-gray-200 rounded-lg p-6">
+                    <h3 class="font-display text-lg font-semibold text-gray-900 mb-4">🏥 Medical Education AI Studies</h3>
+                    <div class="space-y-3 text-sm">
+                        <div id="ref16" class="border-l-4 border-red-500 pl-4">
+                            <p><strong>[16]</strong> PMC Article PMC12067962 (2025, May 12). AI usage among medical students in Palestine: a cross-sectional study. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12067962/" class="text-blue-600 hover:text-blue-800">https://pmc.ncbi.nlm.nih.gov/articles/PMC12067962/</a></p>
+                        </div>
+                        <div id="ref33" class="border-l-4 border-pink-500 pl-4">
+                            <p><strong>[33]</strong> Harvard Medical School Magazine (2025, June 13). How Generative AI Is Transforming Medical Education. <a href="https://magazine.hms.harvard.edu/articles/how-generative-ai-transforming-medical-education" class="text-blue-600 hover:text-blue-800">https://magazine.hms.harvard.edu/articles/how-generative-ai-transforming-medical-education</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Creative AI Tools and Applications -->
+                <div class="border border-gray-200 rounded-lg p-6">
+                    <h3 class="font-display text-lg font-semibold text-gray-900 mb-4">🎨 Creative AI Tools & Applications</h3>
+                    <div class="space-y-3 text-sm">
+                        <div id="ref6" class="border-l-4 border-violet-500 pl-4">
+                            <p><strong>[6]</strong> Nugroho, Y. Y. T., & Manggala, P. M. D. (2024). The Use of AI in Creating Music Compositions: Case Study on Suno Application. Atlantis Press. <a href="https://www.atlantis-press.com/article/126007498.pdf" class="text-blue-600 hover:text-blue-800">https://www.atlantis-press.com/article/126007498.pdf</a></p>
+                        </div>
+                        <div id="ref25" class="border-l-4 border-indigo-500 pl-4">
+                            <p><strong>[25]</strong> International Review of Research in Open and Distributed Learning (2024, August 26). Video Lectures With AI-Generated Instructors: Low Video Engagement, Same Performance as Human Instructors. <a href="https://www.irrodl.org/index.php/irrodl/article/view/7815" class="text-blue-600 hover:text-blue-800">https://www.irrodl.org/index.php/irrodl/article/view/7815</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Writing and Academic Support Studies -->
+                <div class="border border-gray-200 rounded-lg p-6">
+                    <h3 class="font-display text-lg font-semibold text-gray-900 mb-4">✍️ Writing & Academic Support Studies</h3>
+                    <div class="space-y-3 text-sm">
+                        <div id="ref19" class="border-l-4 border-blue-500 pl-4">
+                            <p><strong>[19]</strong> Campbell University (2025, March 6). AI in Higher Education: A Meta Summary of Recent Surveys of Students and Faculty. <a href="https://sites.campbell.edu/academictechnology/2025/03/06/ai-in-higher-education-a-summary-of-recent-surveys-of-students-and-faculty/" class="text-blue-600 hover:text-blue-800">https://sites.campbell.edu/academictechnology/2025/03/06/ai-in-higher-education-a-summary-of-recent-surveys-of-students-and-faculty/</a></p>
+                        </div>
+                        <div id="ref22" class="border-l-4 border-emerald-500 pl-4">
+                            <p><strong>[22]</strong> MDPI Education Sciences (2024, September 4). Writing with AI: What College Students Learned from Utilizing ChatGPT for a Writing Assignment. <a href="https://www.mdpi.com/2227-7102/14/9/976" class="text-blue-600 hover:text-blue-800">https://www.mdpi.com/2227-7102/14/9/976</a></p>
+                        </div>
+                        <div id="ref23" class="border-l-4 border-purple-500 pl-4">
+                            <p><strong>[23]</strong> Arabic Language Learning Study (2025, June 20). Exploring Students' Preferences and Satisfaction in Using Digital Media for Arabic Language Learning in Islamic Higher Education. <a href="https://ejournal.uinsaid.ac.id/index.php/athla/article/view/11998" class="text-blue-600 hover:text-blue-800">https://ejournal.uinsaid.ac.id/index.php/athla/article/view/11998</a></p>
+                        </div>
+                        <div id="ref24" class="border-l-4 border-orange-500 pl-4">
+                            <p><strong>[24]</strong> Times Higher Education (2025, February 26). Nine in 10 UK undergraduates now using AI in assessments – survey. <a href="https://www.timeshighereducation.com/news/nine-10-uk-undergraduates-now-using-ai-assessments-survey" class="text-blue-600 hover:text-blue-800">https://www.timeshighereducation.com/news/nine-10-uk-undergraduates-now-using-ai-assessments-survey</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Institutional Response and Policy Studies -->
+                <div class="border border-gray-200 rounded-lg p-6">
+                    <h3 class="font-display text-lg font-semibold text-gray-900 mb-4">🏫 Institutional Response & Policy Studies</h3>
+                    <div class="space-y-3 text-sm">
+                        <div id="ref13" class="border-l-4 border-teal-500 pl-4">
+                            <p><strong>[13]</strong> Inside Higher Ed (2024, September 16). Survey: When Should College Students Use AI? They're Not Sure. <a href="https://www.insidehighered.com/news/student-success/academic-life/2024/09/16/college-students-uncertain-about-ai-policies" class="text-blue-600 hover:text-blue-800">https://www.insidehighered.com/news/student-success/academic-life/2024/09/16/college-students-uncertain-about-ai-policies</a></p>
+                        </div>
+                        <div id="ref14" class="border-l-4 border-cyan-500 pl-4">
+                            <p><strong>[14]</strong> Pakistan AI Adoption Study (2025, March 20). Bridging the digital divide: Predictors of positive attitudes and functional use of AI among university students in Pakistan. <a href="https://sss.org.pk/sss/article/view/237" class="text-blue-600 hover:text-blue-800">https://sss.org.pk/sss/article/view/237</a></p>
+                        </div>
+                        <div id="ref15" class="border-l-4 border-lime-500 pl-4">
+                            <p><strong>[15]</strong> Jisc (2025, May 22). Student perceptions of AI 2025. <a href="https://www.jisc.ac.uk/reports/student-perceptions-of-ai-2025" class="text-blue-600 hover:text-blue-800">https://www.jisc.ac.uk/reports/student-perceptions-of-ai-2025</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Benefits, Challenges and Impact Studies -->
+                <div class="border border-gray-200 rounded-lg p-6">
+                    <h3 class="font-display text-lg font-semibold text-gray-900 mb-4">📈 Benefits, Challenges & Impact Studies</h3>
+                    <div class="space-y-3 text-sm">
+                        <div id="ref17" class="border-l-4 border-rose-500 pl-4">
+                            <p><strong>[17]</strong> CNBC (2024, June 11). AI is getting very popular among students and teachers, very quickly. <a href="https://www.cnbc.com/2024/06/11/ai-is-getting-very-popular-among-students-and-teachers-very-quickly.html" class="text-blue-600 hover:text-blue-800">https://www.cnbc.com/2024/06/11/ai-is-getting-very-popular-among-students-and-teachers-very-quickly.html</a></p>
+                        </div>
+                        <div id="ref18" class="border-l-4 border-amber-500 pl-4">
+                            <p><strong>[18]</strong> Pew Research Center (2025, January 15). Share of teens using ChatGPT for schoolwork doubled from 2023 to 2025. <a href="https://www.pewresearch.org/short-reads/2025/01/15/about-a-quarter-of-us-teens-have-used-chatgpt-for-schoolwork-double-the-share-in-2023/" class="text-blue-600 hover:text-blue-800">https://www.pewresearch.org/short-reads/2025/01/15/about-a-quarter-of-us-teens-have-used-chatgpt-for-schoolwork-double-the-share-in-2023/</a></p>
+                        </div>
+                        <div id="ref26" class="border-l-4 border-indigo-500 pl-4">
+                            <p><strong>[26]</strong> AI in SME Financial Practices (2025, April 1). AI Adoption in SME Financial Practices: A Paradigm Shift for Risk Mitigation, Cash Flow Optimization, and Sustainable Growth. <a href="https://mysitasi.mohe.gov.my/journal-website/get-meta-article?artId=57faa7f2-a64d-42b2-9f62-0a6a59da8ca1" class="text-blue-600 hover:text-blue-800">https://mysitasi.mohe.gov.my/journal-website/get-meta-article?artId=57faa7f2-a64d-42b2-9f62-0a6a59da8ca1</a></p>
+                        </div>
+                        <div id="ref27" class="border-l-4 border-green-500 pl-4">
+                            <p><strong>[27]</strong> Campus Technology (2024, August 28). Survey: 86% of Students Already Use AI in Their Studies. <a href="https://campustechnology.com/articles/2024/08/28/survey-86-of-students-already-use-ai-in-their-studies.aspx" class="text-blue-600 hover:text-blue-800">https://campustechnology.com/articles/2024/08/28/survey-86-of-students-already-use-ai-in-their-studies.aspx</a></p>
+                        </div>
+                        <div id="ref28" class="border-l-4 border-violet-500 pl-4">
+                            <p><strong>[28]</strong> Higher Education AI Study (2025, May 9). A Study on Embracing Digital Media and AI in Higher Education: From Chalkboards to Chatbots. <a href="https://jrpsjournal.in/index.php/j/article/view/259" class="text-blue-600 hover:text-blue-800">https://jrpsjournal.in/index.php/j/article/view/259</a></p>
+                        </div>
+                        <div id="ref29" class="border-l-4 border-pink-500 pl-4">
+                            <p><strong>[29]</strong> Educational Technology Research (2025, April 4). Analyzing How AI Can Both Exacerbate and Help Overcome Digital Inequalities in Education, Especially in Underserved Regions. <a href="https://thecrsss.com/index.php/Journal/article/view/437" class="text-blue-600 hover:text-blue-800">https://thecrsss.com/index.php/Journal/article/view/437</a></p>
+                        </div>
+                        <div id="ref30" class="border-l-4 border-cyan-500 pl-4">
+                            <p><strong>[30]</strong> AI-Powered Digital Communication (2025, April 4). AI-Powered Digital Communication: Trends, Challenges, and Opportunities in Education. <a href="https://www.pmpjournal.org/index.php/pmp/article/view/443" class="text-blue-600 hover:text-blue-800">https://www.pmpjournal.org/index.php/pmp/article/view/443</a></p>
+                        </div>
+                        <div id="ref31" class="border-l-4 border-orange-500 pl-4">
+                            <p><strong>[31]</strong> Statista (2025, June 23). Global student AI usage for schoolwork 2024. <a href="https://www.statista.com/statistics/1498309/usage-of-ai-by-students-worldwide/" class="text-blue-600 hover:text-blue-800">https://www.statista.com/statistics/1498309/usage-of-ai-by-students-worldwide/</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Academic and Research Studies -->
+                <div class="border border-gray-200 rounded-lg p-6">
+                    <h3 class="font-display text-lg font-semibold text-gray-900 mb-4">📚 Additional Academic & Research Studies</h3>
+                    <div class="space-y-3 text-sm">
+                        <div id="ref5" class="border-l-4 border-blue-500 pl-4">
+                            <p><strong>[5]</strong> ACM Digital Library (2024, October 1). A Literature Survey of LLM Use in Programming Tasks. arXiv:2410.01026. <a href="https://arxiv.org/html/2410.01026v1" class="text-blue-600 hover:text-blue-800">https://arxiv.org/html/2410.01026v1</a></p>
+                        </div>
+                        <div id="ref32" class="border-l-4 border-teal-500 pl-4">
+                            <p><strong>[32]</strong> Medical Education Journal (2025, May 26). Novel Blended Learning on Artificial Intelligence for Medical Students. <a href="https://mededu.jmir.org/2025/1/e65220" class="text-blue-600 hover:text-blue-800">https://mededu.jmir.org/2025/1/e65220</a></p>
+                        </div>
+                        <div id="ref34" class="border-l-4 border-lime-500 pl-4">
+                            <p><strong>[34]</strong> Gender Differences in AI Tool Adoption (2025, January 25). Gender Differences in the Adoption, Usage, and Perceived Effectiveness of AI Writing Tools: A Study Among University for Development Studies Students. <a href="https://ejournal.unma.ac.id/index.php/ijeir/article/view/11717" class="text-blue-600 hover:text-blue-800">https://ejournal.unma.ac.id/index.php/ijeir/article/view/11717</a></p>
+                        </div>
+                        <div id="ref35" class="border-l-4 border-rose-500 pl-4">
+                            <p><strong>[35]</strong> IEEE Ed-Tech Applications Study (2024, December 16). Comparative Study Of AI-Driven Ed-Tech Applications: Insights From Google Play Store Data. <a href="https://ieeexplore.ieee.org/document/10844660/" class="text-blue-600 hover:text-blue-800">https://ieeexplore.ieee.org/document/10844660/</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 text-center">
+                    <button id="hideReferences" class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg font-medium transition-colors">
+                        Hide References
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="font-display text-lg font-semibold mb-4">Key Sources</h3>
+                    <ul class="space-y-2 text-gray-300 text-sm">
+                        <li><a href="https://www.digitaleducationcouncil.com/post/digital-education-council-global-ai-student-survey-2024" class="hover:text-white transition-colors">Digital Education Council Survey</a></li>
+                        <li><a href="https://www.hepi.ac.uk/wp-content/uploads/2025/02/HEPI-Kortext-Student-Generative-AI-Survey-2025.pdf" class="hover:text-white transition-colors">HEPI Student AI Survey 2025</a></li>
+                        <li><a href="https://www.precedenceresearch.com/ai-in-education-market" class="hover:text-white transition-colors">AI in Education Market Report</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-display text-lg font-semibold mb-4">Research Areas</h3>
+                    <ul class="space-y-2 text-gray-300 text-sm">
+                        <li>Student Demographics</li>
+                        <li>Tool Adoption Patterns</li>
+                        <li>Academic Integration</li>
+                        <li>Future Projections</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-display text-lg font-semibold mb-4">AI Tools Featured</h3>
+                    <div class="space-y-2">
+                        <span class="tool-tag text-xs">ChatGPT</span>
+                        <span class="tool-tag text-xs">Suno AI</span>
+                        <span class="tool-tag text-xs">GitHub Copilot</span>
+                        <span class="tool-tag text-xs">DALL-E</span>
+                        <span class="tool-tag text-xs">Perplexity</span>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-display text-lg font-semibold mb-4">Data Visualization</h3>
+                    <p class="text-gray-300 text-sm mb-4">Interactive charts built with Chart.js showcasing adoption rates, demographics, and market growth.</p>
+                    <p class="text-gray-300 text-sm">Responsive design optimized for all devices.</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-8 text-center">
+                <p class="text-gray-400 text-sm">
+                    AI Research & Publishing Assignment | July 2025 | 
+                    <a href="https://github.com/yourusername/ai-college-students-2025" class="text-indigo-400 hover:text-indigo-300 transition-colors">View on GitHub</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="charts.js"></script>
+    <script>
+        // Carousel Functionality
+        class Carousel {
+            constructor() {
+                this.currentSlide = 0;
+                this.slides = document.querySelectorAll('.carousel-slide');
+                this.indicators = document.querySelectorAll('.carousel-indicator');
+                this.prevBtn = document.querySelector('.carousel-prev');
+                this.nextBtn = document.querySelector('.carousel-next');
+                
+                this.init();
+            }
+            
+            init() {
+                if (this.slides.length === 0) return;
+                
+                // Bind event listeners
+                this.prevBtn?.addEventListener('click', () => this.prevSlide());
+                this.nextBtn?.addEventListener('click', () => this.nextSlide());
+                
+                // Bind indicator clicks
+                this.indicators.forEach((indicator, index) => {
+                    indicator.addEventListener('click', () => this.goToSlide(index));
+                });
+                
+                // Auto-advance carousel every 5 seconds
+                setInterval(() => this.nextSlide(), 5000);
+            }
+            
+            goToSlide(n) {
+                this.slides[this.currentSlide].classList.remove('active');
+                this.indicators[this.currentSlide].classList.remove('active');
+                
+                this.currentSlide = n;
+                
+                if (this.currentSlide >= this.slides.length) {
+                    this.currentSlide = 0;
+                }
+                if (this.currentSlide < 0) {
+                    this.currentSlide = this.slides.length - 1;
+                }
+                
+                this.slides[this.currentSlide].classList.add('active');
+                this.indicators[this.currentSlide].classList.add('active');
+            }
+            
+            nextSlide() {
+                this.goToSlide(this.currentSlide + 1);
+            }
+            
+            prevSlide() {
+                this.goToSlide(this.currentSlide - 1);
+            }
+        }
+        
+        // Initialize carousel when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new Carousel();
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add scroll effect to navigation
+        let lastScrollTop = 0;
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                nav.style.transform = 'translateY(-100%)';
+            } else {
+                nav.style.transform = 'translateY(0)';
+            }
+            lastScrollTop = scrollTop;
+        });
+
+        // References toggle functionality
+        const toggleBtn = document.getElementById('toggleReferences');
+        const hideBtn = document.getElementById('hideReferences');
+        const referencesList = document.getElementById('referencesList');
+
+        if (toggleBtn && hideBtn && referencesList) {
+            toggleBtn.addEventListener('click', function() {
+                referencesList.classList.remove('hidden');
+                referencesList.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            });
+
+            hideBtn.addEventListener('click', function() {
+                referencesList.classList.add('hidden');
+                document.getElementById('references').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        }
+    </script>
+</body>
+</html>

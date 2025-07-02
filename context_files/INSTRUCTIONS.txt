@@ -1,0 +1,88 @@
+AI Research & Publishing Assignment
+🎓 Title
+How U.S. College Students Use AI in 2025: A Quantitative Snapshot
+🎯 Objective
+Create a research-backed, SEO-optimized, visually enriched white paper or article on how U.S. college students are using AI tools (including but not limited to writing assistants) in 2025.
+This task will test your ability to:
+Conduct structured research using real-world, credible sources
+Use AI tools (ChatGPT, Claude, Perplexity, Gemini, AI coders, design tools) to assist with writing, visualization, code generation, etc.
+Produce a high-quality, HTML-formatted document ready for web publication
+
+
+📦 Deliverables
+1. Research Article / White Paper
+Length: 1,500–2,000 words
+Format: Clear, structured, reader-friendly
+Tone: Professional, informative, and neutral
+Content must include:
+Statistics and recent data points (2023–2025)
+Trends and segmentation of insights
+At least 5 recent, credible sources quoted and linked
+
+
+2. Visual Assets
+At least 2 custom charts or graphs (based on original or synthesized data)
+At least 1 infographic or summary visual
+Tools allowed: Canva, DALL·E, ChartGPT, Python visualization libraries, etc.
+
+
+3. SEO Optimization
+Clear, compelling title and subheadings
+Use of target keywords and meta description
+Optimized internal structure: headings, paragraph spacing, callouts
+
+
+SEO Keywords to optimize for:
+ Writing AI, Paper AI, AI Assistant, College AI
+4. HTML Version
+Provide a well-structured HTML file ready for web publishing
+Should include: <h1>, <h2>, <p>, <img>, and layout formatting
+Optional: <div>, <style>, responsive design
+Charts and infographics can be embedded or linked
+A link to the posted public page in Github would be a PLUS!
+
+
+5. Tool Usage Documentation
+List all AI tools used
+Describe how each tool was used
+(Optional: Separate file with prompts used, reasoning, outputs)
+
+
+6. ⭐ Bonus Points (Optional)
+Add interactive elements like:
+Collapsible FAQs
+Data filters
+AI-generated comparison visuals
+
+
+⏳ Time Allocation
+Estimated time: 6–8 focused hours. 
+Not a speed test — focus on capability, quality, and tool fluency.
+🚫 Constraints
+No generic or outdated stats — use real, recent data from sources like:
+Pew Research, Statista, EDUCAUSE, NYT, WSJ, Substacks, academic papers, Reddit forums
+Do not use templates or reuse articles as a base
+Original content only — plagiarism will be checked
+
+
+
+
+
+
+📈 What Will Be Evaluated
+Category
+What We’re Looking For
+Research Depth
+Use of up-to-date, relevant, and diverse sources
+AI Tool Fluency
+Intelligent use of AI tools across writing, coding, design, and data
+Structure & SEO
+Clear layout, scannability, and keyword optimization
+Visual Communication
+Quality and clarity of visuals (charts, infographics, etc.)
+Technical HTML Output
+Clean, valid HTML suitable for publication (or already published on Github)
+Initiative & Judgment
+Thoughtful, autonomous decisions beyond minimum requirements
+
+
