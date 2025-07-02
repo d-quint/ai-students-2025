@@ -181,7 +181,7 @@ cd ai-students-2025
 code .
 
 # Serve locally (using Live Server extension or similar)
-# Open ai-students-2025.html in your browser
+# Open index.html in your browser
 ```
 
 ### Dependencies
