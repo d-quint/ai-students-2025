@@ -2,7 +2,7 @@
 
 > **A research-backed, SEO-optimized, visually enriched HTML white paper created entirely using AI tools**
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-blue?style=for-the-badge)](https://your-github-pages-url.github.io/ai-students-2025/)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-blue?style=for-the-badge)](https://d-quint.github.io/ai-students-2025/)
 [![GitHub Pages](https://img.shields.io/badge/GitHub-Pages-green?style=for-the-badge&logo=github)](https://github.com/d-quint/ai-students-2025)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
 
@@ -167,7 +167,7 @@ graph LR
 ## 🚀 Getting Started
 
 ### View Live Demo
-Visit the [live demo](https://your-github-pages-url.github.io/ai-students-2025/) to see the interactive article.
+Visit the [live demo](https://d-quint.github.io/ai-students-2025/) to see the interactive article.
 
 ### Local Development
 ```bash
